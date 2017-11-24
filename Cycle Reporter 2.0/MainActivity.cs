@@ -27,8 +27,6 @@ namespace Cycle_Reporter_2._0
                 SetContentView(Resource.Layout.settings);
             };
 
-
-
             Button viewReports = FindViewById<Button>(Resource.Id.viewReportsButton);
             viewReports.Click += delegate
             {
