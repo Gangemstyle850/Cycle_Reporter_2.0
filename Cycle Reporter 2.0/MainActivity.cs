@@ -6,6 +6,9 @@ using System.Runtime.Remoting.Contexts;
 using System;
 using Android.Content;
 
+
+
+
 namespace Cycle_Reporter_2._0
 {
     [Activity(Label = "Cycle Reporter 2", MainLauncher = true)]
@@ -13,6 +16,7 @@ namespace Cycle_Reporter_2._0
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            
             base.OnCreate(savedInstanceState);
 
             String serverIp = "192.168.43.133`";
