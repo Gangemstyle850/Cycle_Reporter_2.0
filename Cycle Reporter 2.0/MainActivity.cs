@@ -15,8 +15,8 @@ namespace Cycle_Reporter_2._0
         {
             base.OnCreate(savedInstanceState);
 
-            String serverIp = "127.0.0.1";
-            String serverUrl = "http://127.0.0.1";
+            String serverIp = "192.168.43.133`";
+            String serverUrl = "http://192.168.43.133";
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
