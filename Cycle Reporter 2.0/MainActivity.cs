@@ -21,13 +21,6 @@ namespace Cycle_Reporter_2._0
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            Button settingsButton = FindViewById<Button>(Resource.Id.settingsButton);
-            settingsButton.Click += delegate
-            {
-                SetContentView(Resource.Layout.settings);
-            };
-
-
             Button viewReports = FindViewById<Button>(Resource.Id.viewReportsButton);
             viewReports.Click += delegate
             {
