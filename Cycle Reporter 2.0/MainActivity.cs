@@ -20,12 +20,13 @@ namespace Cycle_Reporter_2._0
             base.OnCreate(savedInstanceState);
 
             String serverIp = "www.cyclereporter.net";
-            String serverUrl = "http://www.cyclereporter.net/";
-            String apiUrl = "http://www.cyclereporter.net/api/mobile.php?";
+            String serverUrl = "http://" + serverIp;
+            String apiUrl = serverUrl + "/api/mobile.php?";
 
-            // Set our view from the "main" layout resource
+            // Set View To Main Layout
             SetContentView(Resource.Layout.Main);
 
+            //Take User To Report View Page, On Button Click
             Button viewReports = FindViewById<Button>(Resource.Id.viewReportsButton);
             viewReports.Click += delegate
             {
