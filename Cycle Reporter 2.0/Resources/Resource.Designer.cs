@@ -61,7 +61,7 @@ namespace Cycle_Reporter_2
 		{
 			
 			// aapt resource value: 0x7f050002
-			public const int descriptionInput = 2131034114;
+			public const int reportText = 2131034114;
 			
 			// aapt resource value: 0x7f050000
 			public const int submitButton = 2131034112;
