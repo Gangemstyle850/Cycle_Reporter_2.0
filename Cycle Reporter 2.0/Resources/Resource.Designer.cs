@@ -60,11 +60,11 @@ namespace Cycle_Reporter_2
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int button2 = 2131034112;
-			
 			// aapt resource value: 0x7f050002
-			public const int editText1 = 2131034114;
+			public const int descriptionInput = 2131034114;
+			
+			// aapt resource value: 0x7f050000
+			public const int submitButton = 2131034112;
 			
 			// aapt resource value: 0x7f050001
 			public const int viewReportsButton = 2131034113;

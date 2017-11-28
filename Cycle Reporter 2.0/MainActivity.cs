@@ -28,11 +28,15 @@ namespace Cycle_Reporter_2._0
 
             //Take User To Report View Page, On Button Click
             Button viewReports = FindViewById<Button>(Resource.Id.viewReportsButton);
-            viewReports.Click += delegate
-            {
+            viewReports.Click += async (sender, e) => {
                 Intent i = new Intent(Intent.ActionView);
                 i.SetData(Android.Net.Uri.Parse(serverUrl + "/view"));
                 StartActivity(i);
+            };
+
+            Button submitButton = FindViewById<Button>(Resource.Id.submitButton);
+            submitButton.Click += async (sender, e) => {
+                //Submition Code Here
             };
         }
     }

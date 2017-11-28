@@ -6,7 +6,7 @@
     android:padding="8dp">
     <Button
         android:text="SUBMIT REPORT"
-        android:id="@+id/button2"
+        android:id="@+id/submitButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
@@ -17,6 +17,6 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText1"
+        android:id="@+id/descriptionInput"
         android:text="Report Description (500)" />
 </LinearLayout>
