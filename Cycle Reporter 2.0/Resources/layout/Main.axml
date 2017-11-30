@@ -4,16 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp">
+    <Toolbar
+        android:background="?android:attr/colorBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar1">
+        <Button
+            android:text="Settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/settingsButton"
+            android:layout_marginRight="0.0dp"
+            android:layout_marginLeft="37.0dp" />
+        <Button
+            android:text="VIEW REPORTS ONLINE"
+            android:id="@+id/viewReportsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </Toolbar>
     <Button
         android:text="SUBMIT REPORT"
         android:id="@+id/submitButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <Button
-        android:text="VIEW REPORTS ONLINE"
-        android:id="@+id/viewReportsButton"
+    <TextView
+        android:text="Status: Idle"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:id="@+id/statusText" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,14 +1,13 @@
-﻿using Android.App;
-using Android.Widget;
-using Android.OS;
-using Android.Runtime;
-using System.Runtime.Remoting.Contexts;
-using System;
-using Android.Content;
+﻿using System;
 using System.Threading.Tasks;
 using System.Net;
 using System.IO;
 using System.Json;
+
+using Android.App;
+using Android.Widget;
+using Android.OS;
+using Android.Content;
 
 namespace Cycle_Reporter_2._0
 {
@@ -19,12 +18,20 @@ namespace Cycle_Reporter_2._0
         {
             base.OnCreate(savedInstanceState);
 
-            String serverIp = "www.cyclereporter.net";
+            String serverIp = "www.bikereporter.org";
             String serverUrl = "http://" + serverIp;
             String apiUrl = serverUrl + "/api/mobile.php";
 
             // Set View To Main Layout
             SetContentView(Resource.Layout.Main);
+
+            //Handle Settings Button
+            Button settingsButton = FindViewById<Button>(Resource.Id.settingsButton);
+            settingsButton.Click += delegate
+            {
+                StartActivity(typeof(Resources.Settings));
+            };
+
 
             //Take User To Report View Page, On Button Click
             Button viewReports = FindViewById<Button>(Resource.Id.viewReportsButton);
@@ -37,34 +44,56 @@ namespace Cycle_Reporter_2._0
             //Submit Report On Button Click
             Button submitButton = FindViewById<Button>(Resource.Id.submitButton);
             TextView reportTextview = FindViewById<TextView>(Resource.Id.reportText);
+            TextView statusText = FindViewById<TextView>(Resource.Id.statusText);
             submitButton.Click += async delegate{
                 string reportText = reportTextview.Text;
-                if (reportText == "") {
+                if (reportText == "")
+                {
+                    statusText.Text = "Status: Error: No Report!";
+                    Console.WriteLine("Status: Submition Error: No Report Text!");
+                }
+                else
+                {
                     string apiUrlFinal = apiUrl + "?report=" + reportText;
+                    statusText.Text = "Status: Submiting...";
+                    Console.WriteLine("Status: Submiting...");
                     JsonValue json = await SubmitToServer(apiUrlFinal);
+                    statusText.Text = "Status: Submitited!";
+                    Console.WriteLine("Status: Submitited!");
                 };
             };
         }
         private async Task<JsonValue> SubmitToServer(string url)
         {
-            // Create an HTTP web request using the URL:
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
-            request.ContentType = "application/json";
-            request.Method = "POST";
-
-            // Send the request to the server and wait for the response:
-            using (WebResponse response = await request.GetResponseAsync())
+            try
             {
-                // Get a stream representation of the HTTP web response:
-                using (Stream stream = response.GetResponseStream())
-                {
-                    // Use this stream to build a JSON document object:
-                    JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
-                    Console.Out.WriteLine("Response: {0}", jsonDoc.ToString());
+                // Create an HTTP web request using the URL:
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
+                request.ContentType = "application/json";
+                request.Method = "POST";
 
-                    // Return the JSON document:
-                    return jsonDoc;
+                // Send the request to the server and wait for the response:
+                Console.WriteLine("DEBUG: Contacting Server...");
+                using (WebResponse response = await request.GetResponseAsync())
+                {
+                    // Get a stream representation of the HTTP web response:
+                    Console.WriteLine("DEBUG: Fetching Response...");
+                    using (Stream stream = response.GetResponseStream())
+                    {
+                        // Use this stream to build a JSON document object:
+                        Console.WriteLine("DEBUG: Parsing Result To Json...");
+                        JsonValue jsonDoc = await Task.Run(() => JsonObject.Load(stream));
+                        Console.Out.WriteLine("DEBUG: Response: {0}", jsonDoc.ToString());
+
+                        // Return the JSON document:
+                        return jsonDoc;
+                    }
                 }
+            }
+            catch
+            {
+                Console.WriteLine("!!!HARD ERROR!!! SUBMITION FAILED: ");
+                return ("!!!ERROR!!!");
             }
         }
     }

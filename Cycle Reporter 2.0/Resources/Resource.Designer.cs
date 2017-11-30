@@ -44,14 +44,32 @@ namespace Cycle_Reporter_2
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f040002
-			public const int reportText = 2130968578;
+			// aapt resource value: 0x7f040007
+			public const int offlineSupportSwitch = 2130968583;
 			
-			// aapt resource value: 0x7f040000
-			public const int submitButton = 2130968576;
+			// aapt resource value: 0x7f040008
+			public const int reportCacheSwitch = 2130968584;
+			
+			// aapt resource value: 0x7f040005
+			public const int reportText = 2130968581;
 			
 			// aapt resource value: 0x7f040001
-			public const int viewReportsButton = 2130968577;
+			public const int settingsButton = 2130968577;
+			
+			// aapt resource value: 0x7f040006
+			public const int settingsSaveButton = 2130968582;
+			
+			// aapt resource value: 0x7f040004
+			public const int statusText = 2130968580;
+			
+			// aapt resource value: 0x7f040003
+			public const int submitButton = 2130968579;
+			
+			// aapt resource value: 0x7f040000
+			public const int toolbar1 = 2130968576;
+			
+			// aapt resource value: 0x7f040002
+			public const int viewReportsButton = 2130968578;
 			
 			static Id()
 			{
@@ -69,6 +87,9 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f020000
 			public const int Main = 2130837504;
 			
+			// aapt resource value: 0x7f020001
+			public const int Settings = 2130837505;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -84,6 +105,9 @@ namespace Cycle_Reporter_2
 			
 			// aapt resource value: 0x7f030000
 			public const int app_name = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int offlineSupport = 2130903041;
 			
 			static String()
 			{
