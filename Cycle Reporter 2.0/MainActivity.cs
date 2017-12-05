@@ -8,12 +8,15 @@ using Android.App;
 using Android.Widget;
 using Android.OS;
 using Android.Content;
+using Android.Locations;
 
 namespace Cycle_Reporter_2._0
 {
     [Activity(Label = "Cycle Reporter 2", MainLauncher = true)]
     public class MainActivity : Activity
     {
+        string plateState = null;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -62,7 +65,25 @@ namespace Cycle_Reporter_2._0
                     Console.WriteLine("Status: Submitited!");
                 };
             };
+
+            //Spinner Setup
+            Spinner spinner = FindViewById<Spinner>(Resource.Id.stateSpnr);
+        
+            spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            var adapter = ArrayAdapter.CreateFromResource(
+                    this, Resource.Array.states_array, Android.Resource.Layout.SimpleSpinnerItem);
+
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinner.Adapter = adapter;
         }
+
+        //Set The State Value To Spinner Value
+        void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Spinner spinner = (Spinner)sender;
+            plateState = spinner.SelectedItem.ToString();
+        }
+
         private async Task<JsonValue> SubmitToServer(string url)
         {
             try
@@ -98,4 +119,3 @@ namespace Cycle_Reporter_2._0
         }
     }
 }
-
