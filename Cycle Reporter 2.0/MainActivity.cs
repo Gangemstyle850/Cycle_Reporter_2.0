@@ -16,6 +16,9 @@ namespace Cycle_Reporter_2._0
     public class MainActivity : Activity
     {
         string plateState = null;
+        string day = null;
+        string month = null;
+        string year = null;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -66,22 +69,88 @@ namespace Cycle_Reporter_2._0
                 };
             };
 
+            //Handle Use Date Button
+            Button useDateBtn = FindViewById<Button>(Resource.Id.useDateBtn);
+            useDateBtn.Click += delegate
+            {
+
+            };
+
             //Spinner Setup
-            Spinner spinner = FindViewById<Spinner>(Resource.Id.stateSpnr);
+            //State Spinner
+            Spinner stateSpinner = FindViewById<Spinner>(Resource.Id.stateSpnr);
         
-            spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
-            var adapter = ArrayAdapter.CreateFromResource(
+            stateSpinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(stateSpinner_ItemSelected);
+            var stateSpinnerAdapter = ArrayAdapter.CreateFromResource(
                     this, Resource.Array.states_array, Android.Resource.Layout.SimpleSpinnerItem);
 
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spinner.Adapter = adapter;
+            stateSpinnerAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            stateSpinner.Adapter = stateSpinnerAdapter;
+
+
+
+            //Day Spinner
+            Spinner daySpinner = FindViewById<Spinner>(Resource.Id.daySpnr);
+
+            stateSpinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(daySpinner_ItemSelected);
+            var daySpinnerAdapter = ArrayAdapter.CreateFromResource(
+                    this, Resource.Array.states_array, Android.Resource.Layout.SimpleSpinnerItem);
+
+            daySpinnerAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            daySpinner.Adapter = daySpinnerAdapter;
+
+
+
+            //Month Spinner
+            Spinner monthSpinner = FindViewById<Spinner>(Resource.Id.monthSpnr);
+
+            stateSpinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(monthSpinner_ItemSelected);
+            var monthSpinnerAdapter = ArrayAdapter.CreateFromResource(
+                    this, Resource.Array.states_array, Android.Resource.Layout.SimpleSpinnerItem);
+
+            monthSpinnerAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            monthSpinner.Adapter = monthSpinnerAdapter;
+
+
+
+            //Year Spinner
+            Spinner yearSpinner = FindViewById<Spinner>(Resource.Id.yearSpnr);
+
+            yearSpinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(yearSpinner_ItemSelected);
+            var yearSpinnerAdapter = ArrayAdapter.CreateFromResource(
+                    this, Resource.Array.states_array, Android.Resource.Layout.SimpleSpinnerItem);
+
+            yearSpinnerAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            yearSpinner.Adapter = yearSpinnerAdapter;
         }
 
-        //Set The State Value To Spinner Value
-        void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        //Set Spinner Arrays
+        //State Spinner
+        void stateSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            Spinner spinner = (Spinner)sender;
-            plateState = spinner.SelectedItem.ToString();
+            Spinner stateSpinner = (Spinner)sender;
+            plateState = stateSpinner.SelectedItem.ToString();
+        }
+
+        //Day Spinner
+        void daySpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Spinner daySpinner = (Spinner)sender;
+            day = daySpinner.SelectedItem.ToString();
+        }
+
+        //Month Spinner
+        void monthSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Spinner monthSpinner = (Spinner)sender;
+            month = monthSpinner.SelectedItem.ToString();
+        }
+
+        //Year Spinner
+        void yearSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Spinner yearSpinner = (Spinner)sender;
+            year = yearSpinner.SelectedItem.ToString();
         }
 
         private async Task<JsonValue> SubmitToServer(string url)

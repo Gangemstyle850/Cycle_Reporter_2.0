@@ -31,8 +31,17 @@ namespace Cycle_Reporter_2
 		public partial class Array
 		{
 			
+			// aapt resource value: 0x7f070001
+			public const int days = 2131165185;
+			
+			// aapt resource value: 0x7f070002
+			public const int months = 2131165186;
+			
 			// aapt resource value: 0x7f070000
 			public const int states_array = 2131165184;
+			
+			// aapt resource value: 0x7f070003
+			public const int years = 2131165187;
 			
 			static Array()
 			{
@@ -266,6 +275,9 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f080006
 			public const int adjust_width = 2131230726;
 			
+			// aapt resource value: 0x7f08001a
+			public const int daySpnr = 2131230746;
+			
 			// aapt resource value: 0x7f08000e
 			public const int gpsButton = 2131230734;
 			
@@ -281,8 +293,14 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f080014
 			public const int linearLayout2 = 2131230740;
 			
+			// aapt resource value: 0x7f080018
+			public const int linearLayout3 = 2131230744;
+			
 			// aapt resource value: 0x7f080012
 			public const int lonDisplay = 2131230738;
+			
+			// aapt resource value: 0x7f08001c
+			public const int monthSpnr = 2131230748;
 			
 			// aapt resource value: 0x7f080001
 			public const int none = 2131230721;
@@ -290,14 +308,14 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f080002
 			public const int normal = 2131230722;
 			
-			// aapt resource value: 0x7f080018
-			public const int offlineSupportSwitch = 2131230744;
+			// aapt resource value: 0x7f080021
+			public const int offlineSupportSwitch = 2131230753;
 			
 			// aapt resource value: 0x7f080015
 			public const int plateBox = 2131230741;
 			
-			// aapt resource value: 0x7f080019
-			public const int reportCacheSwitch = 2131230745;
+			// aapt resource value: 0x7f080022
+			public const int reportCacheSwitch = 2131230754;
 			
 			// aapt resource value: 0x7f08000c
 			public const int reportText = 2131230732;
@@ -308,8 +326,8 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f080008
 			public const int settingsButton = 2131230728;
 			
-			// aapt resource value: 0x7f080017
-			public const int settingsSaveButton = 2131230743;
+			// aapt resource value: 0x7f080020
+			public const int settingsSaveButton = 2131230752;
 			
 			// aapt resource value: 0x7f080016
 			public const int stateSpnr = 2131230742;
@@ -329,14 +347,32 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f080013
 			public const int textView2 = 2131230739;
 			
+			// aapt resource value: 0x7f080017
+			public const int textView3 = 2131230743;
+			
+			// aapt resource value: 0x7f080019
+			public const int textView4 = 2131230745;
+			
+			// aapt resource value: 0x7f08001b
+			public const int textView5 = 2131230747;
+			
+			// aapt resource value: 0x7f08001d
+			public const int textView6 = 2131230749;
+			
 			// aapt resource value: 0x7f080007
 			public const int toolbar1 = 2131230727;
 			
 			// aapt resource value: 0x7f08000d
 			public const int toolbar2 = 2131230733;
 			
+			// aapt resource value: 0x7f08001f
+			public const int useDateBtn = 2131230751;
+			
 			// aapt resource value: 0x7f080009
 			public const int viewReportsButton = 2131230729;
+			
+			// aapt resource value: 0x7f08001e
+			public const int yearSpnr = 2131230750;
 			
 			static Id()
 			{
