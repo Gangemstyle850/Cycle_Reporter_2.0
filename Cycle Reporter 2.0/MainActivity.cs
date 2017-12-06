@@ -19,6 +19,10 @@ namespace Cycle_Reporter_2._0
         string day = null;
         string month = null;
         string year = null;
+        int usingCurrentDate = 0;
+        string lat = null;
+        string lon = null;
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -47,33 +51,85 @@ namespace Cycle_Reporter_2._0
                 StartActivity(i);
             };
 
-            //Submit Report On Button Click
-            Button submitButton = FindViewById<Button>(Resource.Id.submitButton);
-            TextView reportTextview = FindViewById<TextView>(Resource.Id.reportText);
-            TextView statusText = FindViewById<TextView>(Resource.Id.statusText);
-            submitButton.Click += async delegate{
-                string reportText = reportTextview.Text;
-                if (reportText == "")
-                {
-                    statusText.Text = "Status: Error: No Report!";
-                    Console.WriteLine("Status: Submition Error: No Report Text!");
-                }
-                else
-                {
-                    string apiUrlFinal = apiUrl + "?report=" + reportText;
-                    statusText.Text = "Status: Submiting...";
-                    Console.WriteLine("Status: Submiting...");
-                    JsonValue json = await SubmitToServer(apiUrlFinal);
-                    statusText.Text = "Status: Submitited!";
-                    Console.WriteLine("Status: Submitited!");
-                };
-            };
 
             //Handle Use Date Button
             Button useDateBtn = FindViewById<Button>(Resource.Id.useDateBtn);
             useDateBtn.Click += delegate
             {
+                DateTime date = DateTime.Today;
+                usingCurrentDate = 1;
+            };
 
+
+            //Handle Use GPS Button
+            Button useGPSBtn = FindViewById<Button>(Resource.Id.gpsButton);
+            useGPSBtn.Click += delegate
+            {
+                lat = Location.Latitude;
+                lon = Location.Longitude;
+            };
+
+
+            //Submit Report On Button Click
+            Button submitButton = FindViewById<Button>(Resource.Id.submitButton);
+            TextView reportTextview = FindViewById<TextView>(Resource.Id.reportText);
+            TextView usrName = FindViewById<TextView>(Resource.Id.usrName);
+            TextView usrMail = FindViewById<TextView>(Resource.Id.usrMail);
+            TextView perpName = FindViewById<TextView>(Resource.Id.perpName);
+            TextView perpMail = FindViewById<TextView>(Resource.Id.perpMail);
+            TextView plateId = FindViewById<TextView>(Resource.Id.plateBox);
+            CheckBox accTick = FindViewById<CheckBox>(Resource.Id.accTick);
+            Switch faultSwtch = FindViewById<Switch>(Resource.Id.faultSwch);
+            TextView statusText = FindViewById<TextView>(Resource.Id.statusText);
+            submitButton.Click += async delegate{
+                if (String.IsNullOrEmpty(reportTextview.Text))
+                {
+                    statusText.Text = "Status: Error: No Report!";
+                    Console.WriteLine("Status: Submition Error: No Report Text!");
+                }else if (String.IsNullOrEmpty(usrMail.Text)){
+                    statusText.Text = "Status: Error: No User Name!";
+                    Console.WriteLine("Status: Error: No User Name Entered");
+                }else if (String.IsNullOrEmpty(usrMail.Text))
+                {
+                    statusText.Text = "Status: Error: No User Email!";
+                    Console.WriteLine("Status: Error: No User Email Entered!");
+                }else{
+                    string acc = null;
+                    string fault = null;
+                    if(accTick.Checked == true){
+                        acc = "true";
+                    }
+                    else if(accTick.Checked == false){
+                        acc = "false";
+                    }
+
+                    if(faultSwtch.Checked == true){
+                        fault = "user";
+                    }
+                    else if(faultSwtch.Checked == false){
+                        fault = "perp";
+                    }
+
+                    string apiUrlFinal = apiUrl+"?Reprt="+reportTextview.Text+"?plateID="+plateId.Text+"?plateState="+plateState+"?incDay="+day+"?incMonth="+month+"?incYear="+year+"?perpName="+perpName.Text+"?perpMail="+perpMail.Text+"?usrName="+usrName.Text+"?usrMail="+usrMail.Text+"?incLat="+lat+"?incLon="+lon+"?acc="+acc+"?fault="+fault;
+
+                    statusText.Text = "Status: Submiting...";
+                    Console.WriteLine("Status: Submiting...");
+
+                    JsonValue jsonReturn = await SubmitToServer(apiUrlFinal);
+
+                    if (String.IsNullOrEmpty(jsonReturn) == false)
+                    {
+                        Console.WriteLine("Status: Recieved Reply From Server");
+                        statusText.Text = "Status: Submitited!";
+                    }else if(String.IsNullOrEmpty(jsonReturn) == true)
+                    {
+                        Console.WriteLine("Status: Error: No Reply From Server!");
+                        statusText.Text = "Status: Error! No Reply From Server!";
+                    }else{
+                        Console.WriteLine("Status: Unknown Error: Problem With Detecting JSON Reply Status!");
+                        statusText.Text = "Status: Error? Something Went Wrong!";
+                    }
+                };
             };
 
             //Spinner Setup
@@ -94,7 +150,7 @@ namespace Cycle_Reporter_2._0
 
             stateSpinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(daySpinner_ItemSelected);
             var daySpinnerAdapter = ArrayAdapter.CreateFromResource(
-                    this, Resource.Array.states_array, Android.Resource.Layout.SimpleSpinnerItem);
+                    this, Resource.Array.days, Android.Resource.Layout.SimpleSpinnerItem);
 
             daySpinnerAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             daySpinner.Adapter = daySpinnerAdapter;
@@ -106,7 +162,7 @@ namespace Cycle_Reporter_2._0
 
             stateSpinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(monthSpinner_ItemSelected);
             var monthSpinnerAdapter = ArrayAdapter.CreateFromResource(
-                    this, Resource.Array.states_array, Android.Resource.Layout.SimpleSpinnerItem);
+                    this, Resource.Array.months, Android.Resource.Layout.SimpleSpinnerItem);
 
             monthSpinnerAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             monthSpinner.Adapter = monthSpinnerAdapter;
@@ -118,13 +174,13 @@ namespace Cycle_Reporter_2._0
 
             yearSpinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(yearSpinner_ItemSelected);
             var yearSpinnerAdapter = ArrayAdapter.CreateFromResource(
-                    this, Resource.Array.states_array, Android.Resource.Layout.SimpleSpinnerItem);
+                    this, Resource.Array.years, Android.Resource.Layout.SimpleSpinnerItem);
 
             yearSpinnerAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             yearSpinner.Adapter = yearSpinnerAdapter;
         }
 
-        //Set Spinner Arrays
+        //Set Spinner Variables
         //State Spinner
         void stateSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {

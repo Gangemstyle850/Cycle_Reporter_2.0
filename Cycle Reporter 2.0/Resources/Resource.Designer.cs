@@ -269,38 +269,56 @@ namespace Cycle_Reporter_2
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f080011
+			public const int accTick = 2131230737;
+			
 			// aapt resource value: 0x7f080005
 			public const int adjust_height = 2131230725;
 			
 			// aapt resource value: 0x7f080006
 			public const int adjust_width = 2131230726;
 			
-			// aapt resource value: 0x7f08001a
-			public const int daySpnr = 2131230746;
+			// aapt resource value: 0x7f080023
+			public const int daySpnr = 2131230755;
 			
-			// aapt resource value: 0x7f08000e
-			public const int gpsButton = 2131230734;
+			// aapt resource value: 0x7f080013
+			public const int faultSwch = 2131230739;
+			
+			// aapt resource value: 0x7f080017
+			public const int gpsButton = 2131230743;
 			
 			// aapt resource value: 0x7f080000
 			public const int hybrid = 2131230720;
 			
-			// aapt resource value: 0x7f080011
-			public const int latDisplay = 2131230737;
+			// aapt resource value: 0x7f08001a
+			public const int latDisplay = 2131230746;
 			
-			// aapt resource value: 0x7f080010
-			public const int linearLayout1 = 2131230736;
+			// aapt resource value: 0x7f080019
+			public const int linearLayout1 = 2131230745;
 			
-			// aapt resource value: 0x7f080014
-			public const int linearLayout2 = 2131230740;
+			// aapt resource value: 0x7f08001d
+			public const int linearLayout2 = 2131230749;
 			
-			// aapt resource value: 0x7f080018
-			public const int linearLayout3 = 2131230744;
+			// aapt resource value: 0x7f080021
+			public const int linearLayout3 = 2131230753;
+			
+			// aapt resource value: 0x7f080009
+			public const int linearLayout4 = 2131230729;
+			
+			// aapt resource value: 0x7f080008
+			public const int linearLayout5 = 2131230728;
+			
+			// aapt resource value: 0x7f08000e
+			public const int linearLayout6 = 2131230734;
 			
 			// aapt resource value: 0x7f080012
-			public const int lonDisplay = 2131230738;
+			public const int linearLayout7 = 2131230738;
 			
-			// aapt resource value: 0x7f08001c
-			public const int monthSpnr = 2131230748;
+			// aapt resource value: 0x7f08001b
+			public const int lonDisplay = 2131230747;
+			
+			// aapt resource value: 0x7f080025
+			public const int monthSpnr = 2131230757;
 			
 			// aapt resource value: 0x7f080001
 			public const int none = 2131230721;
@@ -308,71 +326,92 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f080002
 			public const int normal = 2131230722;
 			
-			// aapt resource value: 0x7f080021
-			public const int offlineSupportSwitch = 2131230753;
+			// aapt resource value: 0x7f08002e
+			public const int offlineSupportSwitch = 2131230766;
 			
-			// aapt resource value: 0x7f080015
-			public const int plateBox = 2131230741;
+			// aapt resource value: 0x7f08002c
+			public const int perpMail = 2131230764;
 			
-			// aapt resource value: 0x7f080022
-			public const int reportCacheSwitch = 2131230754;
+			// aapt resource value: 0x7f08002b
+			public const int perpName = 2131230763;
 			
-			// aapt resource value: 0x7f08000c
-			public const int reportText = 2131230732;
+			// aapt resource value: 0x7f08001e
+			public const int plateBox = 2131230750;
+			
+			// aapt resource value: 0x7f08002f
+			public const int reportCacheSwitch = 2131230767;
+			
+			// aapt resource value: 0x7f080010
+			public const int reportText = 2131230736;
 			
 			// aapt resource value: 0x7f080003
 			public const int satellite = 2131230723;
 			
-			// aapt resource value: 0x7f080008
-			public const int settingsButton = 2131230728;
-			
-			// aapt resource value: 0x7f080020
-			public const int settingsSaveButton = 2131230752;
-			
-			// aapt resource value: 0x7f080016
-			public const int stateSpnr = 2131230742;
-			
-			// aapt resource value: 0x7f08000b
-			public const int statusText = 2131230731;
+			// aapt resource value: 0x7f08000d
+			public const int scrollView1 = 2131230733;
 			
 			// aapt resource value: 0x7f08000a
-			public const int submitButton = 2131230730;
+			public const int settingsButton = 2131230730;
+			
+			// aapt resource value: 0x7f08002d
+			public const int settingsSaveButton = 2131230765;
+			
+			// aapt resource value: 0x7f08001f
+			public const int stateSpnr = 2131230751;
+			
+			// aapt resource value: 0x7f08000f
+			public const int statusText = 2131230735;
+			
+			// aapt resource value: 0x7f08000c
+			public const int submitButton = 2131230732;
+			
+			// aapt resource value: 0x7f080014
+			public const int switch1 = 2131230740;
 			
 			// aapt resource value: 0x7f080004
 			public const int terrain = 2131230724;
 			
-			// aapt resource value: 0x7f08000f
-			public const int textView1 = 2131230735;
+			// aapt resource value: 0x7f080018
+			public const int textView1 = 2131230744;
 			
-			// aapt resource value: 0x7f080013
-			public const int textView2 = 2131230739;
+			// aapt resource value: 0x7f08001c
+			public const int textView2 = 2131230748;
 			
-			// aapt resource value: 0x7f080017
-			public const int textView3 = 2131230743;
+			// aapt resource value: 0x7f080020
+			public const int textView3 = 2131230752;
 			
-			// aapt resource value: 0x7f080019
-			public const int textView4 = 2131230745;
+			// aapt resource value: 0x7f080022
+			public const int textView4 = 2131230754;
 			
-			// aapt resource value: 0x7f08001b
-			public const int textView5 = 2131230747;
+			// aapt resource value: 0x7f080024
+			public const int textView5 = 2131230756;
 			
-			// aapt resource value: 0x7f08001d
-			public const int textView6 = 2131230749;
+			// aapt resource value: 0x7f080026
+			public const int textView6 = 2131230758;
+			
+			// aapt resource value: 0x7f080015
+			public const int textView8 = 2131230741;
 			
 			// aapt resource value: 0x7f080007
 			public const int toolbar1 = 2131230727;
 			
-			// aapt resource value: 0x7f08000d
-			public const int toolbar2 = 2131230733;
+			// aapt resource value: 0x7f080016
+			public const int toolbar2 = 2131230742;
 			
-			// aapt resource value: 0x7f08001f
-			public const int useDateBtn = 2131230751;
+			// aapt resource value: 0x7f080028
+			public const int useDateBtn = 2131230760;
 			
-			// aapt resource value: 0x7f080009
-			public const int viewReportsButton = 2131230729;
+			// aapt resource value: 0x7f08002a
+			public const int usrMail = 2131230762;
 			
-			// aapt resource value: 0x7f08001e
-			public const int yearSpnr = 2131230750;
+			// aapt resource value: 0x7f080029
+			public const int usrName = 2131230761;
+			
+			// aapt resource value: 0x7f08000b
+			public const int viewReportsButton = 2131230731;
+			
+			// aapt resource value: 0x7f080027
+			public const int yearSpnr = 2131230759;
 			
 			static Id()
 			{
