@@ -79,10 +79,10 @@ namespace Cycle_Reporter_2._0
             Button useGPSBtn = FindViewById<Button>(Resource.Id.gpsButton);
             useGPSBtn.Click += delegate
             {
-                LocationManager locationManager = (LocationManager) GetSystemService(LocationService);
+                //LocationManager locationManager = (LocationManager) GetSystemService(LocationService);
 
-                if (locationManager.IsProviderEnabled(LocationService) == true)
-                {
+                //if (locationManager.IsProviderEnabled(LocationService) == true)
+                //{
                     var locator = new Geolocator(this) { DesiredAccuracy = 50 };
                     locator.GetPositionAsync(timeout: 10000).ContinueWith(t =>
                     {
@@ -96,15 +96,15 @@ namespace Cycle_Reporter_2._0
                     lon = lonDbl.ToString("R");
                     latDisplay.Text = "Lat: " + lat;
                     lonDisplay.Text = "Lon: " + lon;
-                }else if(locationManager.IsProviderEnabled(LocationService) == false)
-                {
-                    StartActivity(new Android.Content.Intent(Android.Provider.Settings.ActionLocationSourceSettings));
-                }
-                else
-                {
-                    Console.WriteLine("Status: What The Fuck???");
-                    statusText.Text = "Status: What The Fuck???";
-                }
+                //}else if(locationManager.IsProviderEnabled(LocationService) == false)
+                //{
+                //    StartActivity(new Android.Content.Intent(Android.Provider.Settings.ActionLocationSourceSettings));
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Status: What The Fuck???");
+                //    statusText.Text = "Status: What The Fuck???";
+                //}
             };
 
 
