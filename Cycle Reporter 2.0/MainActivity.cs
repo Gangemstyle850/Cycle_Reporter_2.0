@@ -4,6 +4,8 @@ using System.Net;
 using System.IO;
 using System.Json;
 
+using Xamarin.Geolocation;
+
 using Android.App;
 using Android.Widget;
 using Android.OS;
@@ -19,21 +21,31 @@ namespace Cycle_Reporter_2._0
         string day = null;
         string month = null;
         string year = null;
-        int usingCurrentDate = 0;
         string lat = null;
         string lon = null;
+
+        int usingCurrentDate = 0;
+        double latDbl;
+        double lonDbl;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
+            // Set View To Main Layout
+            SetContentView(Resource.Layout.Main);
+
             String serverIp = "www.bikereporter.org";
             String serverUrl = "http://" + serverIp;
             String apiUrl = serverUrl + "/api/mobile.php";
 
-            // Set View To Main Layout
-            SetContentView(Resource.Layout.Main);
+            TextView latDisplay = FindViewById<TextView>(Resource.Id.latDisplay);
+            TextView lonDisplay = FindViewById<TextView>(Resource.Id.lonDisplay);
+            TextView statusText = FindViewById<TextView>(Resource.Id.statusText);
+
+            latDisplay.Text = "Lat: Is GPS Turned On?";
+            lonDisplay.Text = "Lon: Is GPS Turned On?";
 
             //Handle Settings Button
             Button settingsButton = FindViewById<Button>(Resource.Id.settingsButton);
@@ -45,10 +57,12 @@ namespace Cycle_Reporter_2._0
 
             //Take User To Report View Page, On Button Click
             Button viewReports = FindViewById<Button>(Resource.Id.viewReportsButton);
-            viewReports.Click += async delegate {
+            viewReports.Click += async delegate
+            {
+
                 Intent i = new Intent(Intent.ActionView);
                 i.SetData(Android.Net.Uri.Parse(serverUrl + "/view"));
-                StartActivity(i);
+                await Task.Run(() => StartActivity(i));
             };
 
 
@@ -65,8 +79,32 @@ namespace Cycle_Reporter_2._0
             Button useGPSBtn = FindViewById<Button>(Resource.Id.gpsButton);
             useGPSBtn.Click += delegate
             {
-                lat = Location.Latitude;
-                lon = Location.Longitude;
+                LocationManager locationManager = (LocationManager) GetSystemService(LocationService);
+
+                if (locationManager.IsProviderEnabled(LocationService) == true)
+                {
+                    var locator = new Geolocator(this) { DesiredAccuracy = 50 };
+                    locator.GetPositionAsync(timeout: 10000).ContinueWith(t =>
+                    {
+                        latDbl = t.Result.Latitude;
+                        lonDbl = t.Result.Longitude;
+                        Console.WriteLine("Position Latitude: {0}", t.Result.Latitude);
+                        Console.WriteLine("Position Longitude: {0}", t.Result.Longitude);
+                    }, TaskScheduler.FromCurrentSynchronizationContext());
+
+                    lat = latDbl.ToString("R");
+                    lon = lonDbl.ToString("R");
+                    latDisplay.Text = "Lat: " + lat;
+                    lonDisplay.Text = "Lon: " + lon;
+                }else if(locationManager.IsProviderEnabled(LocationService) == false)
+                {
+                    StartActivity(new Android.Content.Intent(Android.Provider.Settings.ActionLocationSourceSettings));
+                }
+                else
+                {
+                    Console.WriteLine("Status: What The Fuck???");
+                    statusText.Text = "Status: What The Fuck???";
+                }
             };
 
 
@@ -80,7 +118,6 @@ namespace Cycle_Reporter_2._0
             TextView plateId = FindViewById<TextView>(Resource.Id.plateBox);
             CheckBox accTick = FindViewById<CheckBox>(Resource.Id.accTick);
             Switch faultSwtch = FindViewById<Switch>(Resource.Id.faultSwch);
-            TextView statusText = FindViewById<TextView>(Resource.Id.statusText);
             submitButton.Click += async delegate{
                 if (String.IsNullOrEmpty(reportTextview.Text))
                 {
@@ -208,7 +245,8 @@ namespace Cycle_Reporter_2._0
             Spinner yearSpinner = (Spinner)sender;
             year = yearSpinner.SelectedItem.ToString();
         }
-
+        
+        //Submition Code!
         private async Task<JsonValue> SubmitToServer(string url)
         {
             try

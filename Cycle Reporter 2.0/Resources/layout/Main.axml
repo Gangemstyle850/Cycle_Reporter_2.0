@@ -76,12 +76,12 @@
                 <TextView
                     android:text="Their Fault"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:id="@+id/faultSwch"
+                    android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginTop="2.5dp" />
                 <Switch
-                    android:id="@+id/switch1"
+                    android:id="@+id/faultSwch"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8.0dp"
