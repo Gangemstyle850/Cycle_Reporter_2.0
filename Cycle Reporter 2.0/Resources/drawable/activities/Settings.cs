@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Cycle_Reporter_2.Resources
 {
-    [Activity(Label = "Settings", Icon = "@drawable/icons/settings")]
+    [Activity(Label = "Settings", Icon = "@drawable/settings")]
     public class Settings : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

@@ -14,7 +14,7 @@ using Android.Locations;
 
 namespace Cycle_Reporter_2._0
 {
-    [Activity(Label = "Cycle Reporter 2", MainLauncher = true, Icon = "@drawable/icons/icon")]
+    [Activity(Label = "Cycle Reporter 2", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
 
