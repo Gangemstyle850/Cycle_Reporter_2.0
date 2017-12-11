@@ -14,9 +14,51 @@ using Android.Locations;
 
 namespace Cycle_Reporter_2._0
 {
-    [Activity(Label = "Cycle Reporter 2", MainLauncher = true, Icon = "@Resources/drawable/icon.ico")]
+    [Activity(Label = "Cycle Reporter 2", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
+
+
+
+        //Date Picker Code
+        public class DatePickerFragment : DialogFragment,
+                                  DatePickerDialog.IOnDateSetListener
+        {
+            // TAG can be any string of your choice.
+            public static readonly string TAG = "X:" + typeof(DatePickerFragment).Name.ToUpper();
+
+            // Initialize this value to prevent NullReferenceExceptions.
+            Action<DateTime> _dateSelectedHandler = delegate { };
+
+            public static DatePickerFragment NewInstance(Action<DateTime> onDateSelected)
+            {
+                DatePickerFragment frag = new DatePickerFragment();
+                frag._dateSelectedHandler = onDateSelected;
+                return frag;
+            }
+
+            public override Dialog OnCreateDialog(Bundle savedInstanceState)
+            {
+                DateTime currently = DateTime.Now;
+                DatePickerDialog dialog = new DatePickerDialog(Activity,
+                                                               this,
+                                                               currently.Year,
+                                                               currently.Month - 1,
+                                                               currently.Day);
+                return dialog;
+            }
+
+            public void OnDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+            {
+                // Note: monthOfYear is a value between 0 and 11, not 1 and 12!
+                DateTime selectedDate = new DateTime(year, monthOfYear + 1, dayOfMonth);
+                Console.Write("Debug: " + (TAG, selectedDate.ToLongDateString()));
+                _dateSelectedHandler(selectedDate);
+            }
+        }
+
+
+
         string plateState = null;
         string day = null;
         string month = null;
@@ -24,7 +66,6 @@ namespace Cycle_Reporter_2._0
         string lat = null;
         string lon = null;
 
-        int usingCurrentDate = 0;
         double latDbl;
         double lonDbl;
 
@@ -36,6 +77,9 @@ namespace Cycle_Reporter_2._0
             // Set View To Main Layout
             SetContentView(Resource.Layout.Main);
 
+
+
+
             String serverIp = "www.bikereporter.org";
             String serverUrl = "http://" + serverIp;
             String apiUrl = serverUrl + "/api/mobile.php";
@@ -43,9 +87,14 @@ namespace Cycle_Reporter_2._0
             TextView latDisplay = FindViewById<TextView>(Resource.Id.latDisplay);
             TextView lonDisplay = FindViewById<TextView>(Resource.Id.lonDisplay);
             TextView statusText = FindViewById<TextView>(Resource.Id.statusText);
+            TextView dateDisplay = FindViewById<TextView>(Resource.Id.dateDisplay);
 
-            latDisplay.Text = "Lat: Is GPS Turned On?";
-            lonDisplay.Text = "Lon: Is GPS Turned On?";
+            var locator = new Geolocator(this) { DesiredAccuracy = 50 };
+
+            latDisplay.Text = "Lat: ";
+            lonDisplay.Text = "Lon: ";
+
+
 
             //Handle Settings Button
             Button settingsButton = FindViewById<Button>(Resource.Id.settingsButton);
@@ -66,44 +115,68 @@ namespace Cycle_Reporter_2._0
             };
 
 
-            //Handle Use Date Button
-            Button useDateBtn = FindViewById<Button>(Resource.Id.useDateBtn);
-            useDateBtn.Click += delegate
+
+            //Set Date Automaticly
+            DateTime autoDateResult = DateTime.Today;
+            day = "" + autoDateResult.Day;
+            month = "" + autoDateResult.Month;
+            year = "" + autoDateResult.Year;
+            dateDisplay.Text = "Date: " + month + "/" + day + "/" + year;
+
+
+
+            //Handle Set Date Button
+            Button manualDateBtn = FindViewById<Button>(Resource.Id.manualDateBtn);
+            manualDateBtn.Click += delegate
             {
-                DateTime date = DateTime.Today;
-                usingCurrentDate = 1;
+                DatePickerFragment dateFrag = DatePickerFragment.NewInstance(delegate (DateTime dateResult)
+                {
+                    day = "" + dateResult.Day;
+                    month = "" + dateResult.Month;
+                    year = "" + dateResult.Year;
+                    dateDisplay.Text = "Date: " + month + "/" + day + "/" + year;
+                });
+                dateFrag.Show(FragmentManager, DatePickerFragment.TAG);
             };
 
+
+            //Make An Attempt To Get GPS Location, If Not, Ask If GPS Is On...
+            locator.GetPositionAsync(timeout: 10000).ContinueWith(t =>
+            {
+                latDbl = t.Result.Latitude;
+                lonDbl = t.Result.Longitude;
+                lat = latDbl.ToString("R");
+                lon = lonDbl.ToString("R");
+                latDisplay.Text = "Lat: " + lat;
+                lonDisplay.Text = "Lon: " + lon;
+                Console.WriteLine("Automaticly Finding Location By GPS...");
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+            if(latDisplay.Text == "Lat: "){
+                latDisplay.Text = "Lat: Is GPS Enabled?";
+                lonDisplay.Text = "Lon: Is GPS Enabled?";
+            }
 
             //Handle Use GPS Button
             Button useGPSBtn = FindViewById<Button>(Resource.Id.gpsButton);
             useGPSBtn.Click += delegate
             {
-                //LocationManager locationManager = (LocationManager) GetSystemService(LocationService);
+                int showGPSSettings = 0;
+                string rawLat = null;
+                LocationManager locationManager = (LocationManager) GetSystemService(LocationService);
 
-                //if (locationManager.IsProviderEnabled(LocationService) == true)
-                //{
-                    var locator = new Geolocator(this) { DesiredAccuracy = 50 };
-                    locator.GetPositionAsync(timeout: 10000).ContinueWith(t =>
-                    {
-                        latDbl = t.Result.Latitude;
-                        lonDbl = t.Result.Longitude;
-                        lat = latDbl.ToString("R");
-                        lon = lonDbl.ToString("R");
-                        latDisplay.Text = "Lat: " + lat;
-                        lonDisplay.Text = "Lon: " + lon;
-                        Console.WriteLine("Position Latitude: " + lat);
-                        Console.WriteLine("Position Longitude: " + lon);
-                    }, TaskScheduler.FromCurrentSynchronizationContext());
-                //}else if(locationManager.IsProviderEnabled(LocationService) == false)
-                //{
-                //    StartActivity(new Android.Content.Intent(Android.Provider.Settings.ActionLocationSourceSettings));
-                //}
-                //else
-                //{
-                //    Console.WriteLine("Status: What The Fuck???");
-                //    statusText.Text = "Status: What The Fuck???";
-                //}
+                locator.GetPositionAsync(timeout: 10000).ContinueWith(t =>
+                {
+                    lat = "" + t.Result.Latitude;
+                    lon = "" + t.Result.Longitude;
+                    rawLat = "" + t.Result.Latitude;
+                    latDisplay.Text = "Lat: " + lat;
+                    lonDisplay.Text = "Lon: " + lon;
+                    Console.WriteLine("Request Made For Current Location By User... Finding...");
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+                if (String.IsNullOrEmpty(rawLat) == true) {
+                    StartActivity(new Android.Content.Intent(Android.Provider.Settings.ActionLocationSourceSettings));
+                    useGPSBtn.Text = "Retry GPS";
+                }
             };
 
 
@@ -168,10 +241,8 @@ namespace Cycle_Reporter_2._0
             stateSpinner.Adapter = stateSpinnerAdapter;
 
 
-
+/*
             //Day Spinner
-            Spinner daySpinner = FindViewById<Spinner>(Resource.Id.daySpnr);
-
             stateSpinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(daySpinner_ItemSelected);
             var daySpinnerAdapter = ArrayAdapter.CreateFromResource(
                     this, Resource.Array.days, Android.Resource.Layout.SimpleSpinnerItem);
@@ -182,8 +253,6 @@ namespace Cycle_Reporter_2._0
 
 
             //Month Spinner
-            Spinner monthSpinner = FindViewById<Spinner>(Resource.Id.monthSpnr);
-
             stateSpinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(monthSpinner_ItemSelected);
             var monthSpinnerAdapter = ArrayAdapter.CreateFromResource(
                     this, Resource.Array.months, Android.Resource.Layout.SimpleSpinnerItem);
@@ -194,15 +263,16 @@ namespace Cycle_Reporter_2._0
 
 
             //Year Spinner
-            Spinner yearSpinner = FindViewById<Spinner>(Resource.Id.yearSpnr);
-
             yearSpinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(yearSpinner_ItemSelected);
             var yearSpinnerAdapter = ArrayAdapter.CreateFromResource(
                     this, Resource.Array.years, Android.Resource.Layout.SimpleSpinnerItem);
 
             yearSpinnerAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             yearSpinner.Adapter = yearSpinnerAdapter;
+*/
         }
+
+
 
         //Set Spinner Variables
         //State Spinner
@@ -212,6 +282,7 @@ namespace Cycle_Reporter_2._0
             plateState = stateSpinner.SelectedItem.ToString();
         }
 
+/*
         //Day Spinner
         void daySpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
@@ -232,7 +303,9 @@ namespace Cycle_Reporter_2._0
             Spinner yearSpinner = (Spinner)sender;
             year = yearSpinner.SelectedItem.ToString();
         }
-        
+*/
+
+            
         //Submition Code!
         private async Task<JsonValue> SubmitToServer(string url)
         {

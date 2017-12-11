@@ -1141,8 +1141,8 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c0030
 			public const int ContentSeparator = 2131492912;
 			
-			// aapt resource value: 0x7f0c0090
-			public const int ControlsPlaceholder = 2131493008;
+			// aapt resource value: 0x7f0c0089
+			public const int ControlsPlaceholder = 2131493001;
 			
 			// aapt resource value: 0x7f0c0028
 			public const int DatePickerWidget = 2131492904;
@@ -1219,23 +1219,23 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c0045
 			public const int HyperlinkText = 2131492933;
 			
-			// aapt resource value: 0x7f0c008b
-			public const int ImageContainer = 2131493003;
+			// aapt resource value: 0x7f0c0084
+			public const int ImageContainer = 2131492996;
 			
-			// aapt resource value: 0x7f0c008f
-			public const int ImagePlaceholder = 2131493007;
+			// aapt resource value: 0x7f0c0088
+			public const int ImagePlaceholder = 2131493000;
+			
+			// aapt resource value: 0x7f0c0083
+			public const int ImageTextView = 2131492995;
+			
+			// aapt resource value: 0x7f0c0085
+			public const int ImageView = 2131492997;
+			
+			// aapt resource value: 0x7f0c0095
+			public const int InnerLayout = 2131493013;
 			
 			// aapt resource value: 0x7f0c008a
-			public const int ImageTextView = 2131493002;
-			
-			// aapt resource value: 0x7f0c008c
-			public const int ImageView = 2131493004;
-			
-			// aapt resource value: 0x7f0c009c
-			public const int InnerLayout = 2131493020;
-			
-			// aapt resource value: 0x7f0c0091
-			public const int InternalSeekBar = 2131493009;
+			public const int InternalSeekBar = 2131493002;
 			
 			// aapt resource value: 0x7f0c001a
 			public const int Navigation = 2131492890;
@@ -1243,53 +1243,53 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c001b
 			public const int None = 2131492891;
 			
-			// aapt resource value: 0x7f0c007c
-			public const int NumericStepper = 2131492988;
+			// aapt resource value: 0x7f0c0075
+			public const int NumericStepper = 2131492981;
 			
-			// aapt resource value: 0x7f0c00a3
-			public const int PageIndicatorContainer = 2131493027;
+			// aapt resource value: 0x7f0c009c
+			public const int PageIndicatorContainer = 2131493020;
 			
-			// aapt resource value: 0x7f0c00a1
-			public const int PagerTabStrip = 2131493025;
+			// aapt resource value: 0x7f0c009a
+			public const int PagerTabStrip = 2131493018;
 			
-			// aapt resource value: 0x7f0c0092
-			public const int SelectionWidget = 2131493010;
+			// aapt resource value: 0x7f0c008b
+			public const int SelectionWidget = 2131493003;
 			
-			// aapt resource value: 0x7f0c0097
-			public const int SpinnerWidget = 2131493015;
+			// aapt resource value: 0x7f0c0090
+			public const int SpinnerWidget = 2131493008;
 			
 			// aapt resource value: 0x7f0c001c
 			public const int Standard = 2131492892;
 			
+			// aapt resource value: 0x7f0c0091
+			public const int StripPageIndicator = 2131493009;
+			
+			// aapt resource value: 0x7f0c0087
+			public const int SubtitleTextView = 2131492999;
+			
+			// aapt resource value: 0x7f0c0092
+			public const int Switch = 2131493010;
+			
+			// aapt resource value: 0x7f0c0093
+			public const int TabContainer = 2131493011;
+			
+			// aapt resource value: 0x7f0c0096
+			public const int TabIcon = 2131493014;
+			
 			// aapt resource value: 0x7f0c0098
-			public const int StripPageIndicator = 2131493016;
+			public const int TabPageIndicator = 2131493016;
 			
-			// aapt resource value: 0x7f0c008e
-			public const int SubtitleTextView = 2131493006;
-			
-			// aapt resource value: 0x7f0c0099
-			public const int Switch = 2131493017;
-			
-			// aapt resource value: 0x7f0c009a
-			public const int TabContainer = 2131493018;
-			
-			// aapt resource value: 0x7f0c009d
-			public const int TabIcon = 2131493021;
-			
-			// aapt resource value: 0x7f0c009f
-			public const int TabPageIndicator = 2131493023;
-			
-			// aapt resource value: 0x7f0c009e
-			public const int TabTitle = 2131493022;
+			// aapt resource value: 0x7f0c0097
+			public const int TabTitle = 2131493015;
 			
 			// aapt resource value: 0x7f0c0020
 			public const int Text1 = 2131492896;
 			
-			// aapt resource value: 0x7f0c0096
-			public const int Text2 = 2131493014;
+			// aapt resource value: 0x7f0c008f
+			public const int Text2 = 2131493007;
 			
-			// aapt resource value: 0x7f0c009b
-			public const int TimePickerWidget = 2131493019;
+			// aapt resource value: 0x7f0c0094
+			public const int TimePickerWidget = 2131493012;
 			
 			// aapt resource value: 0x7f0c002d
 			public const int TitleContainer = 2131492909;
@@ -1297,17 +1297,17 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c002e
 			public const int TitleText = 2131492910;
 			
-			// aapt resource value: 0x7f0c008d
-			public const int TitleTextView = 2131493005;
+			// aapt resource value: 0x7f0c0086
+			public const int TitleTextView = 2131492998;
 			
-			// aapt resource value: 0x7f0c0089
-			public const int ValueText = 2131493001;
+			// aapt resource value: 0x7f0c0082
+			public const int ValueText = 2131492994;
 			
-			// aapt resource value: 0x7f0c00a0
-			public const int ViewPager = 2131493024;
+			// aapt resource value: 0x7f0c0099
+			public const int ViewPager = 2131493017;
 			
-			// aapt resource value: 0x7f0c00a2
-			public const int ViewSlider = 2131493026;
+			// aapt resource value: 0x7f0c009b
+			public const int ViewSlider = 2131493019;
 			
 			// aapt resource value: 0x7f0c0008
 			public const int adjust_height = 2131492872;
@@ -1318,8 +1318,8 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c000d
 			public const int auto = 2131492877;
 			
-			// aapt resource value: 0x7f0c0071
-			public const int center_frame = 2131492977;
+			// aapt resource value: 0x7f0c006a
+			public const int center_frame = 2131492970;
 			
 			// aapt resource value: 0x7f0c0054
 			public const int contTick = 2131492948;
@@ -1327,59 +1327,59 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c000e
 			public const int dark = 2131492878;
 			
-			// aapt resource value: 0x7f0c0062
-			public const int daySpnr = 2131492962;
+			// aapt resource value: 0x7f0c005f
+			public const int dateDisplay = 2131492959;
 			
-			// aapt resource value: 0x7f0c007a
-			public const int decrease_button = 2131492986;
+			// aapt resource value: 0x7f0c0073
+			public const int decrease_button = 2131492979;
 			
-			// aapt resource value: 0x7f0c006f
-			public const int detailFrame = 2131492975;
+			// aapt resource value: 0x7f0c0068
+			public const int detailFrame = 2131492968;
 			
-			// aapt resource value: 0x7f0c0075
-			public const int drawer_layout = 2131492981;
+			// aapt resource value: 0x7f0c006e
+			public const int drawer_layout = 2131492974;
 			
-			// aapt resource value: 0x7f0c007f
-			public const int form_list_fragment_1 = 2131492991;
-			
-			// aapt resource value: 0x7f0c0088
-			public const int form_list_fragment_10 = 2131493000;
-			
-			// aapt resource value: 0x7f0c0080
-			public const int form_list_fragment_2 = 2131492992;
+			// aapt resource value: 0x7f0c0078
+			public const int form_list_fragment_1 = 2131492984;
 			
 			// aapt resource value: 0x7f0c0081
-			public const int form_list_fragment_3 = 2131492993;
+			public const int form_list_fragment_10 = 2131492993;
 			
-			// aapt resource value: 0x7f0c0082
-			public const int form_list_fragment_4 = 2131492994;
+			// aapt resource value: 0x7f0c0079
+			public const int form_list_fragment_2 = 2131492985;
 			
-			// aapt resource value: 0x7f0c0083
-			public const int form_list_fragment_5 = 2131492995;
+			// aapt resource value: 0x7f0c007a
+			public const int form_list_fragment_3 = 2131492986;
 			
-			// aapt resource value: 0x7f0c0084
-			public const int form_list_fragment_6 = 2131492996;
+			// aapt resource value: 0x7f0c007b
+			public const int form_list_fragment_4 = 2131492987;
 			
-			// aapt resource value: 0x7f0c0085
-			public const int form_list_fragment_7 = 2131492997;
+			// aapt resource value: 0x7f0c007c
+			public const int form_list_fragment_5 = 2131492988;
 			
-			// aapt resource value: 0x7f0c0086
-			public const int form_list_fragment_8 = 2131492998;
+			// aapt resource value: 0x7f0c007d
+			public const int form_list_fragment_6 = 2131492989;
 			
-			// aapt resource value: 0x7f0c0087
-			public const int form_list_fragment_9 = 2131492999;
+			// aapt resource value: 0x7f0c007e
+			public const int form_list_fragment_7 = 2131492990;
+			
+			// aapt resource value: 0x7f0c007f
+			public const int form_list_fragment_8 = 2131492991;
+			
+			// aapt resource value: 0x7f0c0080
+			public const int form_list_fragment_9 = 2131492992;
 			
 			// aapt resource value: 0x7f0c0041
 			public const int fragmentActivityLayout = 2131492929;
 			
-			// aapt resource value: 0x7f0c006c
-			public const int fragmentBody = 2131492972;
+			// aapt resource value: 0x7f0c0065
+			public const int fragmentBody = 2131492965;
 			
-			// aapt resource value: 0x7f0c006d
-			public const int fragmentFooter = 2131492973;
+			// aapt resource value: 0x7f0c0066
+			public const int fragmentFooter = 2131492966;
 			
-			// aapt resource value: 0x7f0c006b
-			public const int fragmentHeader = 2131492971;
+			// aapt resource value: 0x7f0c0064
+			public const int fragmentHeader = 2131492964;
 			
 			// aapt resource value: 0x7f0c0056
 			public const int gpsButton = 2131492950;
@@ -1396,8 +1396,8 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c0016
 			public const int image = 2131492886;
 			
-			// aapt resource value: 0x7f0c0079
-			public const int increase_button = 2131492985;
+			// aapt resource value: 0x7f0c0072
+			public const int increase_button = 2131492978;
 			
 			// aapt resource value: 0x7f0c0010
 			public const int inside = 2131492880;
@@ -1405,11 +1405,11 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c0059
 			public const int latDisplay = 2131492953;
 			
-			// aapt resource value: 0x7f0c0070
-			public const int left_frame = 2131492976;
+			// aapt resource value: 0x7f0c0069
+			public const int left_frame = 2131492969;
 			
-			// aapt resource value: 0x7f0c0077
-			public const int left_navdrawer = 2131492983;
+			// aapt resource value: 0x7f0c0070
+			public const int left_navdrawer = 2131492976;
 			
 			// aapt resource value: 0x7f0c000f
 			public const int light = 2131492879;
@@ -1419,9 +1419,6 @@ namespace Cycle_Reporter_2
 			
 			// aapt resource value: 0x7f0c005c
 			public const int linearLayout2 = 2131492956;
-			
-			// aapt resource value: 0x7f0c0060
-			public const int linearLayout3 = 2131492960;
 			
 			// aapt resource value: 0x7f0c004e
 			public const int linearLayout4 = 2131492942;
@@ -1444,17 +1441,17 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c005a
 			public const int lonDisplay = 2131492954;
 			
-			// aapt resource value: 0x7f0c0076
-			public const int maincontent_navdrawer = 2131492982;
+			// aapt resource value: 0x7f0c006f
+			public const int maincontent_navdrawer = 2131492975;
 			
-			// aapt resource value: 0x7f0c006e
-			public const int masterFrame = 2131492974;
+			// aapt resource value: 0x7f0c0060
+			public const int manualDateBtn = 2131492960;
 			
-			// aapt resource value: 0x7f0c0074
-			public const int message_box = 2131492980;
+			// aapt resource value: 0x7f0c0067
+			public const int masterFrame = 2131492967;
 			
-			// aapt resource value: 0x7f0c0064
-			public const int monthSpnr = 2131492964;
+			// aapt resource value: 0x7f0c006d
+			public const int message_box = 2131492973;
 			
 			// aapt resource value: 0x7f0c0004
 			public const int none = 2131492868;
@@ -1462,17 +1459,17 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c0005
 			public const int normal = 2131492869;
 			
-			// aapt resource value: 0x7f0c007b
-			public const int numeric_box = 2131492987;
+			// aapt resource value: 0x7f0c0074
+			public const int numeric_box = 2131492980;
 			
-			// aapt resource value: 0x7f0c0094
-			public const int offlineSupportSwitch = 2131493012;
+			// aapt resource value: 0x7f0c008d
+			public const int offlineSupportSwitch = 2131493005;
 			
 			// aapt resource value: 0x7f0c0011
 			public const int outside = 2131492881;
 			
-			// aapt resource value: 0x7f0c007d
-			public const int parallax_image = 2131492989;
+			// aapt resource value: 0x7f0c0076
+			public const int parallax_image = 2131492982;
 			
 			// aapt resource value: 0x7f0c005d
 			public const int plateBox = 2131492957;
@@ -1492,20 +1489,20 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c0001
 			public const int ptr_text = 2131492865;
 			
-			// aapt resource value: 0x7f0c0095
-			public const int reportCacheSwitch = 2131493013;
+			// aapt resource value: 0x7f0c008e
+			public const int reportCacheSwitch = 2131493006;
 			
 			// aapt resource value: 0x7f0c0053
 			public const int reportText = 2131492947;
 			
-			// aapt resource value: 0x7f0c0073
-			public const int right_button = 2131492979;
+			// aapt resource value: 0x7f0c006c
+			public const int right_button = 2131492972;
 			
-			// aapt resource value: 0x7f0c0072
-			public const int right_frame = 2131492978;
+			// aapt resource value: 0x7f0c006b
+			public const int right_frame = 2131492971;
 			
-			// aapt resource value: 0x7f0c0078
-			public const int right_navdrawer = 2131492984;
+			// aapt resource value: 0x7f0c0071
+			public const int right_navdrawer = 2131492977;
 			
 			// aapt resource value: 0x7f0c0006
 			public const int satellite = 2131492870;
@@ -1516,11 +1513,11 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c004f
 			public const int settingsButton = 2131492943;
 			
-			// aapt resource value: 0x7f0c0093
-			public const int settingsSaveButton = 2131493011;
+			// aapt resource value: 0x7f0c008c
+			public const int settingsSaveButton = 2131493004;
 			
-			// aapt resource value: 0x7f0c007e
-			public const int shared_image = 2131492990;
+			// aapt resource value: 0x7f0c0077
+			public const int shared_image = 2131492983;
 			
 			// aapt resource value: 0x7f0c0012
 			public const int spb_interpolator_accelerate = 2131492882;
@@ -1543,8 +1540,8 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c004c
 			public const int statusText = 2131492940;
 			
-			// aapt resource value: 0x7f0c006a
-			public const int submitButton = 2131492970;
+			// aapt resource value: 0x7f0c0063
+			public const int submitButton = 2131492963;
 			
 			// aapt resource value: 0x7f0c0017
 			public const int subtitle = 2131492887;
@@ -1558,18 +1555,6 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c005b
 			public const int textView2 = 2131492955;
 			
-			// aapt resource value: 0x7f0c005f
-			public const int textView3 = 2131492959;
-			
-			// aapt resource value: 0x7f0c0061
-			public const int textView4 = 2131492961;
-			
-			// aapt resource value: 0x7f0c0063
-			public const int textView5 = 2131492963;
-			
-			// aapt resource value: 0x7f0c0065
-			public const int textView6 = 2131492965;
-			
 			// aapt resource value: 0x7f0c0018
 			public const int title = 2131492888;
 			
@@ -1579,14 +1564,11 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c0055
 			public const int toolbar2 = 2131492949;
 			
-			// aapt resource value: 0x7f0c0067
-			public const int useDateBtn = 2131492967;
+			// aapt resource value: 0x7f0c0062
+			public const int usrMail = 2131492962;
 			
-			// aapt resource value: 0x7f0c0069
-			public const int usrMail = 2131492969;
-			
-			// aapt resource value: 0x7f0c0068
-			public const int usrName = 2131492968;
+			// aapt resource value: 0x7f0c0061
+			public const int usrName = 2131492961;
 			
 			// aapt resource value: 0x7f0c001e
 			public const int vertical = 2131492894;
@@ -1596,9 +1578,6 @@ namespace Cycle_Reporter_2
 			
 			// aapt resource value: 0x7f0c000c
 			public const int wide = 2131492876;
-			
-			// aapt resource value: 0x7f0c0066
-			public const int yearSpnr = 2131492966;
 			
 			static Id()
 			{
