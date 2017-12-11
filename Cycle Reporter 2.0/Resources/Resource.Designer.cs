@@ -1051,49 +1051,46 @@ namespace Cycle_Reporter_2
 			public const int ic_drawer = 2130837527;
 			
 			// aapt resource value: 0x7f020018
-			public const int icon = 2130837528;
+			public const int leftdrawershadow = 2130837528;
 			
 			// aapt resource value: 0x7f020019
-			public const int leftdrawershadow = 2130837529;
+			public const int rightdrawershadow = 2130837529;
 			
 			// aapt resource value: 0x7f02001a
-			public const int rightdrawershadow = 2130837530;
+			public const int roundedcorner_checked = 2130837530;
 			
 			// aapt resource value: 0x7f02001b
-			public const int roundedcorner_checked = 2130837531;
+			public const int roundedcorner_default = 2130837531;
 			
 			// aapt resource value: 0x7f02001c
-			public const int roundedcorner_default = 2130837532;
+			public const int roundedcorner_pressed = 2130837532;
 			
 			// aapt resource value: 0x7f02001d
-			public const int roundedcorner_pressed = 2130837533;
+			public const int roundedselector = 2130837533;
 			
 			// aapt resource value: 0x7f02001e
-			public const int roundedselector = 2130837534;
+			public const int toast_frame_holo = 2130837534;
 			
 			// aapt resource value: 0x7f02001f
-			public const int toast_frame_holo = 2130837535;
+			public const int vpi__tab_indicator = 2130837535;
 			
 			// aapt resource value: 0x7f020020
-			public const int vpi__tab_indicator = 2130837536;
+			public const int vpi__tab_selected_focused_holo = 2130837536;
 			
 			// aapt resource value: 0x7f020021
-			public const int vpi__tab_selected_focused_holo = 2130837537;
+			public const int vpi__tab_selected_holo = 2130837537;
 			
 			// aapt resource value: 0x7f020022
-			public const int vpi__tab_selected_holo = 2130837538;
+			public const int vpi__tab_selected_pressed_holo = 2130837538;
 			
 			// aapt resource value: 0x7f020023
-			public const int vpi__tab_selected_pressed_holo = 2130837539;
+			public const int vpi__tab_unselected_focused_holo = 2130837539;
 			
 			// aapt resource value: 0x7f020024
-			public const int vpi__tab_unselected_focused_holo = 2130837540;
+			public const int vpi__tab_unselected_holo = 2130837540;
 			
 			// aapt resource value: 0x7f020025
-			public const int vpi__tab_unselected_holo = 2130837541;
-			
-			// aapt resource value: 0x7f020026
-			public const int vpi__tab_unselected_pressed_holo = 2130837542;
+			public const int vpi__tab_unselected_pressed_holo = 2130837541;
 			
 			static Drawable()
 			{
@@ -1231,8 +1228,8 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c0085
 			public const int ImageView = 2131492997;
 			
-			// aapt resource value: 0x7f0c0095
-			public const int InnerLayout = 2131493013;
+			// aapt resource value: 0x7f0c0096
+			public const int InnerLayout = 2131493014;
 			
 			// aapt resource value: 0x7f0c008a
 			public const int InternalSeekBar = 2131493002;
@@ -1246,50 +1243,50 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c0075
 			public const int NumericStepper = 2131492981;
 			
-			// aapt resource value: 0x7f0c009c
-			public const int PageIndicatorContainer = 2131493020;
+			// aapt resource value: 0x7f0c009d
+			public const int PageIndicatorContainer = 2131493021;
 			
-			// aapt resource value: 0x7f0c009a
-			public const int PagerTabStrip = 2131493018;
+			// aapt resource value: 0x7f0c009b
+			public const int PagerTabStrip = 2131493019;
 			
 			// aapt resource value: 0x7f0c008b
 			public const int SelectionWidget = 2131493003;
 			
-			// aapt resource value: 0x7f0c0090
-			public const int SpinnerWidget = 2131493008;
+			// aapt resource value: 0x7f0c0091
+			public const int SpinnerWidget = 2131493009;
 			
 			// aapt resource value: 0x7f0c001c
 			public const int Standard = 2131492892;
 			
-			// aapt resource value: 0x7f0c0091
-			public const int StripPageIndicator = 2131493009;
+			// aapt resource value: 0x7f0c0092
+			public const int StripPageIndicator = 2131493010;
 			
 			// aapt resource value: 0x7f0c0087
 			public const int SubtitleTextView = 2131492999;
 			
-			// aapt resource value: 0x7f0c0092
-			public const int Switch = 2131493010;
-			
 			// aapt resource value: 0x7f0c0093
-			public const int TabContainer = 2131493011;
+			public const int Switch = 2131493011;
 			
-			// aapt resource value: 0x7f0c0096
-			public const int TabIcon = 2131493014;
-			
-			// aapt resource value: 0x7f0c0098
-			public const int TabPageIndicator = 2131493016;
+			// aapt resource value: 0x7f0c0094
+			public const int TabContainer = 2131493012;
 			
 			// aapt resource value: 0x7f0c0097
-			public const int TabTitle = 2131493015;
+			public const int TabIcon = 2131493015;
+			
+			// aapt resource value: 0x7f0c0099
+			public const int TabPageIndicator = 2131493017;
+			
+			// aapt resource value: 0x7f0c0098
+			public const int TabTitle = 2131493016;
 			
 			// aapt resource value: 0x7f0c0020
 			public const int Text1 = 2131492896;
 			
-			// aapt resource value: 0x7f0c008f
-			public const int Text2 = 2131493007;
+			// aapt resource value: 0x7f0c0090
+			public const int Text2 = 2131493008;
 			
-			// aapt resource value: 0x7f0c0094
-			public const int TimePickerWidget = 2131493012;
+			// aapt resource value: 0x7f0c0095
+			public const int TimePickerWidget = 2131493013;
 			
 			// aapt resource value: 0x7f0c002d
 			public const int TitleContainer = 2131492909;
@@ -1303,11 +1300,11 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c0082
 			public const int ValueText = 2131492994;
 			
-			// aapt resource value: 0x7f0c0099
-			public const int ViewPager = 2131493017;
+			// aapt resource value: 0x7f0c009a
+			public const int ViewPager = 2131493018;
 			
-			// aapt resource value: 0x7f0c009b
-			public const int ViewSlider = 2131493019;
+			// aapt resource value: 0x7f0c009c
+			public const int ViewSlider = 2131493020;
 			
 			// aapt resource value: 0x7f0c0008
 			public const int adjust_height = 2131492872;
@@ -1572,6 +1569,9 @@ namespace Cycle_Reporter_2
 			
 			// aapt resource value: 0x7f0c001e
 			public const int vertical = 2131492894;
+			
+			// aapt resource value: 0x7f0c008f
+			public const int viewGPSButton = 2131493007;
 			
 			// aapt resource value: 0x7f0c0050
 			public const int viewReportsButton = 2131492944;

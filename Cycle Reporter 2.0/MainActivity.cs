@@ -14,7 +14,7 @@ using Android.Locations;
 
 namespace Cycle_Reporter_2._0
 {
-    [Activity(Label = "Cycle Reporter 2", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Cycle Reporter 2", MainLauncher = true, Icon = "@drawable/icons/icon")]
     public class MainActivity : Activity
     {
 
@@ -88,6 +88,7 @@ namespace Cycle_Reporter_2._0
             TextView lonDisplay = FindViewById<TextView>(Resource.Id.lonDisplay);
             TextView statusText = FindViewById<TextView>(Resource.Id.statusText);
             TextView dateDisplay = FindViewById<TextView>(Resource.Id.dateDisplay);
+            Button useGPSBtn = FindViewById<Button>(Resource.Id.gpsButton);
 
             var locator = new Geolocator(this) { DesiredAccuracy = 50 };
 
@@ -151,31 +152,32 @@ namespace Cycle_Reporter_2._0
                 lonDisplay.Text = "Lon: " + lon;
                 Console.WriteLine("Automaticly Finding Location By GPS...");
             }, TaskScheduler.FromCurrentSynchronizationContext());
-            if(latDisplay.Text == "Lat: "){
+            if (String.IsNullOrEmpty(lat) == true)
+            {
+                useGPSBtn.Text = "Retry GPS";
                 latDisplay.Text = "Lat: Is GPS Enabled?";
                 lonDisplay.Text = "Lon: Is GPS Enabled?";
+            }else{
+                useGPSBtn.Text = "Update GPS";
             }
 
             //Handle Use GPS Button
-            Button useGPSBtn = FindViewById<Button>(Resource.Id.gpsButton);
             useGPSBtn.Click += delegate
             {
-                int showGPSSettings = 0;
-                string rawLat = null;
                 LocationManager locationManager = (LocationManager) GetSystemService(LocationService);
 
                 locator.GetPositionAsync(timeout: 10000).ContinueWith(t =>
                 {
                     lat = "" + t.Result.Latitude;
                     lon = "" + t.Result.Longitude;
-                    rawLat = "" + t.Result.Latitude;
                     latDisplay.Text = "Lat: " + lat;
                     lonDisplay.Text = "Lon: " + lon;
                     Console.WriteLine("Request Made For Current Location By User... Finding...");
                 }, TaskScheduler.FromCurrentSynchronizationContext());
-                if (String.IsNullOrEmpty(rawLat) == true) {
-                    StartActivity(new Android.Content.Intent(Android.Provider.Settings.ActionLocationSourceSettings));
+                if (String.IsNullOrEmpty(lat) == true) {
                     useGPSBtn.Text = "Retry GPS";
+                } else{
+                    useGPSBtn.Text = "Update GPS";
                 }
             };
 

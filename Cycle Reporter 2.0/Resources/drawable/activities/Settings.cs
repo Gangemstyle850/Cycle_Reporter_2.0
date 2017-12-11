@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Cycle_Reporter_2.Resources
 {
-    [Activity(Label = "Settings")]
+    [Activity(Label = "Settings", Icon = "@drawable/icons/settings")]
     public class Settings : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -28,6 +28,13 @@ namespace Cycle_Reporter_2.Resources
             else
             {
                 offlineSupport.Checked = true;
+            };
+
+            //Handle GPS Settings Button
+            Button viewGPSBtn = FindViewById<Button>(Resource.Id.viewGPSButton);
+            viewGPSBtn.Click += delegate
+            {
+                StartActivity(new Android.Content.Intent(Android.Provider.Settings.ActionLocationSourceSettings));
             };
 
             //Handle Save Button

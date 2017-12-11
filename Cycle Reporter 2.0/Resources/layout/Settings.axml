@@ -4,19 +4,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp">
-    <Button
-        android:text="Save"
+    <Toolbar
+        android:minHeight="?android:attr/actionBarSize"
+        android:background="?android:attr/colorPrimary"
+        android:minWidth="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/settingsSaveButton" />
-    <Switch
+        android:id="@+id/toolbar1">
+        <Button
+            android:text="Save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/settingsSaveButton" />
+    </Toolbar>
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/offlineSupportSwitch "
-        android:text="Offline Support" />
-    <Switch
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/reportCacheSwitch"
-        android:text="Do Not Delete Reports After Submition" />
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView1">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout1">
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/offlineSupportSwitch "
+                android:text="Offline Support" />
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/reportCacheSwitch"
+                android:text="Do Not Delete Reports After Submition" />
+            <Button
+                android:text="Open GPS Settings"
+                android:id="@+id/viewGPSButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
