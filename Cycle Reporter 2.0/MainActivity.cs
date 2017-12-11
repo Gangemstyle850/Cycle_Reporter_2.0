@@ -14,7 +14,7 @@ using Android.Locations;
 
 namespace Cycle_Reporter_2._0
 {
-    [Activity(Label = "Cycle Reporter 2", MainLauncher = true)]
+    [Activity(Label = "Cycle Reporter 2", MainLauncher = true, Icon = "@Resources/drawable/icon.ico")]
     public class MainActivity : Activity
     {
         string plateState = null;
@@ -88,14 +88,13 @@ namespace Cycle_Reporter_2._0
                     {
                         latDbl = t.Result.Latitude;
                         lonDbl = t.Result.Longitude;
-                        Console.WriteLine("Position Latitude: {0}", t.Result.Latitude);
-                        Console.WriteLine("Position Longitude: {0}", t.Result.Longitude);
+                        lat = latDbl.ToString("R");
+                        lon = lonDbl.ToString("R");
+                        latDisplay.Text = "Lat: " + lat;
+                        lonDisplay.Text = "Lon: " + lon;
+                        Console.WriteLine("Position Latitude: " + lat);
+                        Console.WriteLine("Position Longitude: " + lon);
                     }, TaskScheduler.FromCurrentSynchronizationContext());
-
-                    lat = latDbl.ToString("R");
-                    lon = lonDbl.ToString("R");
-                    latDisplay.Text = "Lat: " + lat;
-                    lonDisplay.Text = "Lon: " + lon;
                 //}else if(locationManager.IsProviderEnabled(LocationService) == false)
                 //{
                 //    StartActivity(new Android.Content.Intent(Android.Provider.Settings.ActionLocationSourceSettings));
@@ -113,11 +112,8 @@ namespace Cycle_Reporter_2._0
             TextView reportTextview = FindViewById<TextView>(Resource.Id.reportText);
             TextView usrName = FindViewById<TextView>(Resource.Id.usrName);
             TextView usrMail = FindViewById<TextView>(Resource.Id.usrMail);
-            TextView perpName = FindViewById<TextView>(Resource.Id.perpName);
-            TextView perpMail = FindViewById<TextView>(Resource.Id.perpMail);
             TextView plateId = FindViewById<TextView>(Resource.Id.plateBox);
-            CheckBox accTick = FindViewById<CheckBox>(Resource.Id.accTick);
-            Switch faultSwtch = FindViewById<Switch>(Resource.Id.faultSwch);
+            CheckBox contTick = FindViewById<CheckBox>(Resource.Id.contTick);
             submitButton.Click += async delegate{
                 if (String.IsNullOrEmpty(reportTextview.Text))
                 {
@@ -131,23 +127,14 @@ namespace Cycle_Reporter_2._0
                     statusText.Text = "Status: Error: No User Email!";
                     Console.WriteLine("Status: Error: No User Email Entered!");
                 }else{
-                    string acc = null;
-                    string fault = null;
-                    if(accTick.Checked == true){
-                        acc = "true";
-                    }
-                    else if(accTick.Checked == false){
-                        acc = "false";
+                    string cont = null;
+                    if(contTick.Checked == true){
+                        cont = "true";
+                    }else if(contTick.Checked == false){
+                        cont = "true";
                     }
 
-                    if(faultSwtch.Checked == true){
-                        fault = "user";
-                    }
-                    else if(faultSwtch.Checked == false){
-                        fault = "perp";
-                    }
-
-                    string apiUrlFinal = apiUrl+"?Reprt="+reportTextview.Text+"?plateID="+plateId.Text+"?plateState="+plateState+"?incDay="+day+"?incMonth="+month+"?incYear="+year+"?perpName="+perpName.Text+"?perpMail="+perpMail.Text+"?usrName="+usrName.Text+"?usrMail="+usrMail.Text+"?incLat="+lat+"?incLon="+lon+"?acc="+acc+"?fault="+fault;
+                    string apiUrlFinal = apiUrl+"?Reprt="+reportTextview.Text+"&plateID="+plateId.Text+"&plateState="+plateState+"&incDay="+day+"&incMonth="+month+"&incYear="+year+"&usrName="+usrName.Text+"&usrMail="+usrMail.Text+"&incLat="+lat+"&incLon="+lon+"&cont="+cont;
 
                     statusText.Text = "Status: Submiting...";
                     Console.WriteLine("Status: Submiting...");
