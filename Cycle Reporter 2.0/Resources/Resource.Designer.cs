@@ -1249,11 +1249,11 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c0075
 			public const int NumericStepper = 2131492981;
 			
-			// aapt resource value: 0x7f0c009e
-			public const int PageIndicatorContainer = 2131493022;
+			// aapt resource value: 0x7f0c009d
+			public const int PageIndicatorContainer = 2131493021;
 			
-			// aapt resource value: 0x7f0c009c
-			public const int PagerTabStrip = 2131493020;
+			// aapt resource value: 0x7f0c009b
+			public const int PagerTabStrip = 2131493019;
 			
 			// aapt resource value: 0x7f0c008b
 			public const int SelectionWidget = 2131493003;
@@ -1276,14 +1276,14 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c0094
 			public const int TabContainer = 2131493012;
 			
-			// aapt resource value: 0x7f0c0098
-			public const int TabIcon = 2131493016;
-			
-			// aapt resource value: 0x7f0c009a
-			public const int TabPageIndicator = 2131493018;
+			// aapt resource value: 0x7f0c0097
+			public const int TabIcon = 2131493015;
 			
 			// aapt resource value: 0x7f0c0099
-			public const int TabTitle = 2131493017;
+			public const int TabPageIndicator = 2131493017;
+			
+			// aapt resource value: 0x7f0c0098
+			public const int TabTitle = 2131493016;
 			
 			// aapt resource value: 0x7f0c0020
 			public const int Text1 = 2131492896;
@@ -1306,11 +1306,11 @@ namespace Cycle_Reporter_2
 			// aapt resource value: 0x7f0c0082
 			public const int ValueText = 2131492994;
 			
-			// aapt resource value: 0x7f0c009b
-			public const int ViewPager = 2131493019;
+			// aapt resource value: 0x7f0c009a
+			public const int ViewPager = 2131493018;
 			
-			// aapt resource value: 0x7f0c009d
-			public const int ViewSlider = 2131493021;
+			// aapt resource value: 0x7f0c009c
+			public const int ViewSlider = 2131493020;
 			
 			// aapt resource value: 0x7f0c0008
 			public const int adjust_height = 2131492872;
@@ -1560,9 +1560,6 @@ namespace Cycle_Reporter_2
 			
 			// aapt resource value: 0x7f0c0018
 			public const int title = 2131492888;
-			
-			// aapt resource value: 0x7f0c0097
-			public const int toolbar = 2131493015;
 			
 			// aapt resource value: 0x7f0c004d
 			public const int toolbar1 = 2131492941;
@@ -1868,19 +1865,16 @@ namespace Cycle_Reporter_2
 			public const int toastshape = 2130903111;
 			
 			// aapt resource value: 0x7f030048
-			public const int toolbar = 2130903112;
+			public const int viewpagerindicatortab = 2130903112;
 			
 			// aapt resource value: 0x7f030049
-			public const int viewpagerindicatortab = 2130903113;
+			public const int viewpagerwithtab = 2130903113;
 			
 			// aapt resource value: 0x7f03004a
-			public const int viewpagerwithtab = 2130903114;
+			public const int viewpagerwithtabstrip = 2130903114;
 			
 			// aapt resource value: 0x7f03004b
-			public const int viewpagerwithtabstrip = 2130903115;
-			
-			// aapt resource value: 0x7f03004c
-			public const int viewslider = 2130903116;
+			public const int viewslider = 2130903115;
 			
 			static Layout()
 			{
@@ -2036,9 +2030,6 @@ namespace Cycle_Reporter_2
 			
 			// aapt resource value: 0x7f0d0000
 			public const int ListItem = 2131558400;
-			
-			// aapt resource value: 0x7f0d000f
-			public const int MainTheme = 2131558415;
 			
 			// aapt resource value: 0x7f0d000c
 			public const int PageIndicator = 2131558412;
